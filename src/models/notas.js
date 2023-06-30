@@ -38,10 +38,16 @@ const notasSchema = mongoose.Schema({
         type: String,
         required: true
     },
+
+    imagen: {
+        type: String,
+        required: true
+    },
     enlace: {
         type: String,
         required: true
     }
+
 
   });
 
