@@ -1,8 +1,15 @@
 const express = require("express");
 const notasSchema = require("../models/notas")
 
+const { searchNotas, searchTipo } = require('../controllers/notas');
+
 
 const router = express.Router();
+
+router.get('/notassrc', searchNotas);
+router.get('/tiposrc', searchTipo);
+
+
 
 router.post("/notas",  (req,res) => {
     res.send("crear notas");
@@ -10,8 +17,15 @@ router.post("/notas",  (req,res) => {
 
 // recibir todas las notas
 router.get("/notas", (req, res) => {
+  const variable = new Date().getFullYear();
+  const patron = `^${variable}`;
+
+const filtros = {
+  fecha: { $regex: new RegExp(patron), $options: 'i' }
+};
+
     notasSchema
-      .find()
+      .find(filtros)
       .then((data) => res.json(data))
       .catch((error) => res.json({ message: error }));
   });
