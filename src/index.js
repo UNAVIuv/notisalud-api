@@ -7,7 +7,7 @@ const cors = require('cors')
 
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT||10000;
 
 app.use(cors())
 
@@ -33,4 +33,4 @@ mongoose
     .then(() => { console.log('connected to MongoDB atlas')});
     //.catch((error) => console.error(error));
 
-//app.listen(port, () => {console.log('server listing on port', port); }) 
+app.listen(port, () => {console.log('server listing on port', port); }) 
