@@ -4,12 +4,12 @@ require("dotenv").config();
 const rutasNota = require("./routes/notas");
 const cors = require('cors')
 
-app.use(cors())
+
 
 const app = express();
 const port = process.env.PORT;
 
-
+app.use(cors())
 
 //MIDDLEWARE
 app.use('/api', rutasNota)
