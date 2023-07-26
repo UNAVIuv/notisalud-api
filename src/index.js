@@ -4,10 +4,12 @@ require("dotenv").config();
 const rutasNota = require("./routes/notas");
 const cors = require('cors')
 
-const app = express();
-const port = process.env.PORT || 9000;
-
 app.use(cors())
+
+const app = express();
+const port = process.env.PORT;
+
+
 
 //MIDDLEWARE
 app.use('/api', rutasNota)
@@ -31,4 +33,4 @@ mongoose
     .then(() => { console.log('connected to MongoDB atlas')});
     //.catch((error) => console.error(error));
 
-app.listen(port, () => {console.log('server listing on port', port); }) 
+//app.listen(port, () => {console.log('server listing on port', port); }) 
