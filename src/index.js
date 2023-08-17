@@ -9,9 +9,9 @@ const cors = require('cors')
 const app = express();
 const port = process.env.PORT || 9000;
 
-app.use(cors({
+app.use(cors(/*{
     origin: "https://notisalud-api-vax3.onrender.com"
-}))
+}*/))
 
 app.options('*', cors())
 
@@ -31,8 +31,6 @@ mongoose.set("strictQuery", false);
 
 mongoose
     .connect(process.env.MONGODB_URI)
-    /*mongoose.connect('mongodb+srv://uvadmin:unavi2022@cluster0.uxzt6ty.mongodb.net/noticias?retryWrites=true&w=majority'
-    ) */
     
     .then(() => { console.log('connected to MongoDB atlas')});
     //.catch((error) => console.error(error));
